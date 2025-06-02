@@ -1,6 +1,5 @@
-const BASE_MODEL_URL = import.meta.env.PROD 
-  ? 'https://justadudewhohacks.github.io/face-api.js/models'  // CDN for production
-  : '/models'; // Local path for development
+// Always use local models from the public directory
+const BASE_MODEL_URL = '/models';
 
 export const modelPaths = {
   tinyFaceDetector: `${BASE_MODEL_URL}/tiny_face_detector`,
