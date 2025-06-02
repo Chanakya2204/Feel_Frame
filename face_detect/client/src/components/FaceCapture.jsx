@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Webcam from "react-webcam";
 import * as faceapi from 'face-api.js';
 import { endpoints } from '../config/api';
+import { modelPaths } from '../config/models';
 
 const FaceCapture = () => {
   const webcamRef = useRef(null);
@@ -15,14 +16,17 @@ const FaceCapture = () => {
   useEffect(() => {
     const loadModels = async () => {
       try {
+        console.log('Loading models from:', modelPaths);
         await Promise.all([
-          faceapi.nets.tinyFaceDetector.loadFromUri('/models/tiny_face_detector'),
-          faceapi.nets.faceRecognitionNet.loadFromUri('/models/face_recognition'),
-          faceapi.nets.faceLandmark68Net.loadFromUri('/models/face_landmark_68'),
-          faceapi.nets.ageGenderNet.loadFromUri('/models/age_gender_model')
+          faceapi.nets.tinyFaceDetector.loadFromUri(modelPaths.tinyFaceDetector),
+          faceapi.nets.faceRecognitionNet.loadFromUri(modelPaths.faceRecognition),
+          faceapi.nets.faceLandmark68Net.loadFromUri(modelPaths.faceLandmark68),
+          faceapi.nets.ageGenderNet.loadFromUri(modelPaths.ageGender)
         ]);
+        console.log('Models loaded successfully');
         setModelsLoaded(true);
       } catch (err) {
+        console.error('Error loading models:', err);
         setStatus("❌ Failed to load models.");
       }
     };
