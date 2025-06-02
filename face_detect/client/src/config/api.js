@@ -1,4 +1,4 @@
-const API_URL = process.env.VITE_API_URL || 'http://localhost:3001';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 export const endpoints = {
   registerFace: `${API_URL}/api/register-face`,
