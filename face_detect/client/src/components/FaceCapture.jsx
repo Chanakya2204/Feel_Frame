@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Webcam from "react-webcam";
 import * as faceapi from 'face-api.js';
+import { endpoints } from '../config/api';
 
 const FaceCapture = () => {
   const webcamRef = useRef(null);
@@ -56,7 +57,7 @@ const FaceCapture = () => {
     const genderProbability = detection.genderProbability;
 
     try {
-      const res = await fetch('http://localhost:3001/api/register-face', {
+      const res = await fetch(endpoints.registerFace, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
