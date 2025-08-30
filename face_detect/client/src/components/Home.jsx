@@ -4,24 +4,6 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const features = [
     {
-      title: 'Face Registration',
-      description: 'Register your face in the gaming system',
-      path: '/face-capture',
-      icon: '📸'
-    },
-    {
-      title: 'Face Recognition',
-      description: 'Recognize registered faces',
-      path: '/face-recognition',
-      icon: '🔍'
-    },
-    {
-      title: 'Age & Gender Analysis',
-      description: 'Analyze age and gender',
-      path: '/age-gender',
-      icon: '👤'
-    },
-    {
       title: 'Emotion Detection',
       description: 'Detect facial emotions',
       path: '/emotion',
@@ -71,4 +53,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default Home;
